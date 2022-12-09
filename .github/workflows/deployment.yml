@@ -2,8 +2,10 @@ name: Deploy Project
 on:
   pull_request:
     types: 
-    - opened
-    - edited
+      - opened
+      - edited
+    branches:
+      - master
   workflow_dispatch:
   push:
     branches:
@@ -27,16 +29,16 @@ jobs:
     needs: RunTests
     runs-on: ubuntu-latest
     steps:
-    - name: Get code
-      uses: actions/checkout@v3
-    - name: Install NodeJs
-      uses: actions/setup-node@v3
-      with: 
-        node-version: 18
-    - name: Install Dependencies
-      run: npm ci 
-    - name: Build Project 
-      run: npm run build
+    # - name: Get code
+    #   uses: actions/checkout@v3
+    # - name: Install NodeJs
+    #   uses: actions/setup-node@v3
+    #   with: ß
+    #     node-version: 18ß∂
+    # - name: Install Dependencies
+    #   run: npm ci 
+    # - name: Build Project 
+    #   run: npm run build
     - name: Deploy Project
       run: echo "Deploying job...."
 
