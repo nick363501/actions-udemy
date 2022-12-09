@@ -2,9 +2,14 @@ name: Deploy Project
 on:
   pull_request:
     types: 
-    - opened
-    - edited
+      - opened
+      - edited
+    branches:
+      - master
   workflow_dispatch:
+  push:
+    branches:
+      - develop
 jobs:
   RunTests:
     runs-on: ubuntu-latest
