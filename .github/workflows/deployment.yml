@@ -9,8 +9,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
       - develop
+    paths-ignore:
+      - "README.md"
 jobs:
   RunTests:
     runs-on: ubuntu-latest
