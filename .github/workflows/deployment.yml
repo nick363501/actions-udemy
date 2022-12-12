@@ -6,14 +6,17 @@ on:
       - edited
     branches:
       - master
-  workflow_dispatch:
   push:
+    branches:
+      - main
+  workflow_dispatch:
+    push:
     branches:
       - develop
     paths-ignore:
       - "README.md"
 jobs:
-  RunTests:
+  Ttests:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -26,8 +29,18 @@ jobs:
         run: npm ci 
       - name: Run Tests
         run: npm test
+  Build:
+    needs: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: ubuntu-latest
+      - name: Install Dependencies
+        run: npm ci 
+      - name: Build website
+        run: npn run build 
   DeployPackage:
-    needs: RunTests
+    needs: Build
     runs-on: ubuntu-latest
     steps:
     # - name: Get code
