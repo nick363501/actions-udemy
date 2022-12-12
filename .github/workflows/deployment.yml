@@ -16,7 +16,7 @@ on:
     paths-ignore:
       - "README.md"
 jobs:
-  Ttests:
+  Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: ubuntu-latest
+        uses: actions/checkout@v3ß
       - name: Install Dependencies
         run: npm ci 
       - name: Build website
