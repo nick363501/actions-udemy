@@ -39,7 +39,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci 
       - name: Build website
-        run: npn run build 
+        run: npm run build 
   DeployPackage:
     needs: Build
     runs-on: ubuntu-latest
